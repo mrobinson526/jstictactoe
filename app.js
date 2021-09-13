@@ -1,10 +1,18 @@
-let players = ["X", "O"];
+// Margaret G. Robinson
+let players = ["x", "O", " "];
+let turn=1;
 let cells = document.querySelectorAll(".row>div");
 for (let i=0; i<cells.length; i++) {
     cells[i].addEventListener("click", cellClicked);
 }
 function cellClicked() {
+    turn ++
+    if (turn%2==0) {
         event.target.textContent="X";
+  } else {
+        event.target.textContent="O";
+  }
+  checkWin(turn);
 };
 function checkWin(){
     if(cells[0].textContent ==="X" 
@@ -71,6 +79,6 @@ function checkWin(){
     else if (cells[2].textContent ==="O"
       && cells[4].textContent ==="O"
       && cells[6].textContent ==="O")
-    {alert("Player O is the winner")}    
+    {alert("Player O is the winner")}
 } 
-  
+//  {alert("Game is a draw!")}
